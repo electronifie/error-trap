@@ -1,7 +1,7 @@
 var log = require('log');
 
 module.exports = function () {
-  process.on('uncaughtException', function (err) {
+  process.on('uncaughtException', function handleUncaughtException(err) {
     log.fatal('uncaughtException');
 
     if (err) {
@@ -17,20 +17,20 @@ module.exports = function () {
     throw err;
   });
 
-  process.on('unhandledRejection', function (err) {
+  process.on('unhandledRejection', function handleUnhandledRejection(err) {
     log.fatal('unhandledRejection');
     throw err;
   });
 
-  process.on('SIGINT', function () {
+  process.on('SIGINT', function handleSigint() {
     throw new Error('SIGINT');
   });
 
-  process.on('SIGTERM', function () {
+  process.on('SIGTERM', function handleSigterm() {
     throw new Error('SIGTERM');
   });
 
-  process.on('SIGHUP', function () {
+  process.on('SIGHUP', function handleSighup() {
     throw new Error('SIGHUP');
   });
 };
