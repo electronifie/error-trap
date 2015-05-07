@@ -5,6 +5,7 @@ module.exports = function () {
     log.fatal('uncaughtException');
 
     if (err) {
+      
       if (err.toString) {
         log.fatal(err.toString());
       }
@@ -14,7 +15,7 @@ module.exports = function () {
       log.fatal(console.trace());
     }
 
-    throw err;
+    process.abort(1);
   });
 
   process.on('unhandledRejection', function handleUnhandledRejection(err) {
@@ -22,15 +23,4 @@ module.exports = function () {
     throw err;
   });
 
-  process.on('SIGINT', function handleSigint() {
-    throw new Error('SIGINT');
-  });
-
-  process.on('SIGTERM', function handleSigterm() {
-    throw new Error('SIGTERM');
-  });
-
-  process.on('SIGHUP', function handleSighup() {
-    throw new Error('SIGHUP');
-  });
 };
