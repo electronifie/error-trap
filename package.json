@@ -1,7 +1,7 @@
 {
-  "name": "error-trap",
-  "version": "0.0.3",
-  "private": true,
+  "name": "errortrap",
+  "version": "1.0.0",
+  "description": "Trap and log uncaught errors using llog.",
   "dependencies": {
     "bunyan": "^1.5.1",
     "llog": "0.0.7"
