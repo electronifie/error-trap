@@ -2,6 +2,13 @@
   "name": "errortrap",
   "version": "1.0.0",
   "description": "Trap and log uncaught errors using llog.",
+  "author": "support@electronifie.com",
+  "homepage": "https://github.com/electronifie/error-trap",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/electronifie/error-trap.git"
+  },
   "dependencies": {
     "bunyan": "^1.5.1",
     "llog": "0.0.7"
