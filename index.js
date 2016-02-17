@@ -5,7 +5,6 @@ module.exports = function () {
     log.fatal('uncaughtException');
 
     if (err) {
-      
       if (err.toString) {
         log.fatal(err.toString());
       }
@@ -14,6 +13,9 @@ module.exports = function () {
     } else {
       log.fatal(console.trace());
     }
+
+    // ring system bell
+    console.log('\u0007');
 
     process.abort(1);
   });
