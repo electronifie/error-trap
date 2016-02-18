@@ -1,6 +1,8 @@
 var log = require('llog');
 
-module.exports = function () {
+module.exports = function (options) {
+  options = options || {};
+
   process.on('uncaughtException', function handleUncaughtException(err) {
     log.fatal('uncaughtException');
 
@@ -15,7 +17,9 @@ module.exports = function () {
     }
 
     // ring system bell
-    console.log('\u0007');
+    if (options.ringSystemBellOnAbort) {
+      console.log('\u0007');
+    }
 
     process.abort(1);
   });
